@@ -1,5 +1,5 @@
 <?php
 
-echo "Olá mundo";
+echo "<h1 class='text-center'>Olá mundo</h1><hr>";
 
-include "../src/teste.php";
+include "../src/table.php";
