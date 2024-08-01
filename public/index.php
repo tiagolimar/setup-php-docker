@@ -2,6 +2,7 @@
 
 $routes = [
     '/' => '../src/views/home.php',
+    '/home' => '../src/views/home.php',
     '/listar' => '../src/views/listar/listar.php',
     '/cadastro' => '../src/views/cadastro/cadastro.php',
 ];

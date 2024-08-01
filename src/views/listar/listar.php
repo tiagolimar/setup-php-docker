@@ -1,4 +1,4 @@
-<h1 class="text-center" >Listar Contatos 📞</h1>
+<h1 class="text-center" >Lista de Contatos 📞</h1>
 
 <?php
 include 'table.php';
