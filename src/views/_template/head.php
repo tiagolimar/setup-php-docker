@@ -8,7 +8,10 @@
 </head>
 <body class="container" style="background-color: #EFEFEF">
     <h1 class="mt-3 text-center">Contatos 📞📞📞</h1>
-    <nav class="row bg-dark-subtle border-top border-bottom border-black pt-2 pb-2 mt-2 mb-2">
-        <a class="col text-center link-opacity-25-hover text-black fs-4" href="/listar">Listar</a>
-        <a class="col text-center link-opacity-25-hover text-black fs-4" href="/cadastro">Cadastro</a>
+    <nav class="navbar row bg-dark-subtle border-top border-bottom border-black pt-2 pb-2 mt-2 mb-2">
+        <ul class="navbar-nav flex-row justify-content-around">
+            <li class="nav-item"><a class="nav-link fs-4" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link fs-4" href="/listar">Listar</a></li>
+            <li class="nav-item"><a class="nav-link fs-4" href="/cadastro">Cadastro</a></li>
+        </ul>
     </nav>

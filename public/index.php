@@ -1,12 +1,12 @@
 <?php
 
 $routes = [
+    '/' => '../src/views/home.php',
     '/listar' => '../src/views/listar/listar.php',
     '/cadastro' => '../src/views/cadastro/cadastro.php',
 ];
 
 $controller = [
-    '/listar' => '../src/controller/listar/listar.php',
     '/cadastro' => '../src/controller/cadastro/cadastro.php',
 ];
 
@@ -17,7 +17,9 @@ function direcionarRota($routes, $controller) {
     foreach ($routes as $key => $value) {
         if ($url == $key) {
             include $value;
-            include $controller[$key];
+            if (array_key_exists($key, $controller)) {
+                include $controller[$key];
+            }
             $naoEncontrado = FALSE;
         }
     }

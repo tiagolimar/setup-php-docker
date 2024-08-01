@@ -1,5 +1,5 @@
 
-<form action="" method="post" class="border bg-white p-4 rounded d-flex flex-column shadow">
+<form action="" method="post" class="container w-75 border bg-white p-4 rounded rounded-4 mt-4 d-flex flex-column shadow">
     <h1 class="text-center fs-2" >Novo Contato 📞</h1>
     <div class="form-group mb-4">
         <label for="nome" class="form-label">Nome:</label>

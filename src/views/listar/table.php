@@ -51,7 +51,7 @@ function renderTbody ($array){
 function renderTable ($array){
     $thead = renderThead($array);
     $tbody = renderTbody($array);
-    $htmlTable = "<table class='table table-striped text-center border border-black table-hover'>".$thead.$tbody."</table>";
+    $htmlTable = "<table class='container table table-striped text-center border border-black table-hover'>".$thead.$tbody."</table>";
     return $htmlTable;
 }
 
