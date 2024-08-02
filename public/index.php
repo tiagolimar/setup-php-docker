@@ -3,12 +3,12 @@
 $routes = [
     '/' => '../src/views/home.php',
     '/home' => '../src/views/home.php',
-    '/listar' => '../src/views/listar/listar.php',
-    '/cadastro' => '../src/views/cadastro/cadastro.php',
+    '/listar' => '../src/views/listar/index.php',
+    '/cadastro' => '../src/views/cadastro/index.php',
 ];
 
 $controller = [
-    '/cadastro' => '../src/controller/cadastro/cadastro.php',
+    '/cadastro' => '../src/controller/cadastro/index.php',
 ];
 
 function direcionarRota($routes, $controller) {
@@ -29,7 +29,7 @@ function direcionarRota($routes, $controller) {
 }
 
 function renderView($routes, $controller){
-    include '../src/views/_template/head.php';
+    include '../src/views/_template/head/index.php';
     direcionarRota($routes, $controller);
     include '../src/views/_template/footer.php';
 }

@@ -1,4 +1,7 @@
 <?php
+
+
+
 function cadastrar() {
     $nome = $_POST['nome'];
     $email = $_POST['email'];
