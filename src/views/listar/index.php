@@ -3,6 +3,8 @@
 <?php
 include 'table.php';
 include 'people.php';
+include '../../controller/conexao.php';
 
-echo renderTable($people);
+$contatos = ler_contatos();
+echo renderTable($contatos);
 ?>

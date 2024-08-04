@@ -1,12 +1,14 @@
 <?php
 
-
+include '../conexao.php';
 
 function cadastrar() {
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $telefone = $_POST['telefone'];
-    echo $nome, $email, $telefone;
+    $novo_contato = [
+        'nome' => $_POST['nome'],
+        'email' => $_POST['email'],
+        'telefone' => $_POST['telefone'],
+    ];
+    criar_contato($novo_contato);
 }
 
 if ($_POST){
