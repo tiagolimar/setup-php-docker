@@ -1,17 +1,17 @@
 <?php
 
-include '../conexao.php';
+include '../_conexao/index.php';
 
-function cadastrar() {
+function cadastrar($pdo,$nome_tabela) {
     $novo_contato = [
         'nome' => $_POST['nome'],
         'email' => $_POST['email'],
         'telefone' => $_POST['telefone'],
     ];
-    criar_contato($novo_contato);
+    criar_contato($pdo,$nome_tabela,$novo_contato);
 }
 
 if ($_POST){
-    cadastrar();
+    cadastrar($pdo,$nome_tabela);
 }
 ?>

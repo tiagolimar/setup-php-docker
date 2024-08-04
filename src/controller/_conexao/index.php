@@ -1,17 +1,17 @@
 <?php
-
-$pdo = new PDO('mysql:host=setup-mysql;dbname=db_name', 'user', 'password');
+include 'contatos.php';
 $nome_tabela = 'tb_contatos';
 
 try {
+    $pdo = new PDO('mysql:host=setup-mysql;dbname=db_name', 'user', 'password');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    criar_tabela();
+    criar_tabela($pdo, $nome_tabela);
+    criar_contatos_padrao($pdo, $nome_tabela, $contatos_padrao);
 } catch (PDOException $e) {
     echo 'Conexão falhou: ' . $e->getMessage();
 }
 
-function criar_tabela(){
-    global $pdo, $nome_tabela;
+function criar_tabela($pdo, $nome_tabela){
     $colunas = [
         'id INT AUTO_INCREMENT PRIMARY KEY',
         'nome VARCHAR(100) NOT NULL',
@@ -19,7 +19,8 @@ function criar_tabela(){
         'telefone VARCHAR(20)'
     ];
     
-    $sql = "CREATE TABLE IF NOT EXISTS {$nome_tabela} ({implode(', ', $colunas)})";
+    $sql_colunas = implode(', ', $colunas);
+    $sql = "CREATE TABLE IF NOT EXISTS {$nome_tabela} ({$sql_colunas})";
 
     try {
         $pdo->exec($sql);
@@ -28,25 +29,28 @@ function criar_tabela(){
     }
 }
 
-function criar_contato($contato){
-    global $pdo, $nome_tabela;
+function criar_contatos_padrao($pdo, $nome_tabela, $contatos_padrao){
+    foreach ($contatos_padrao as $contato) {
+        criar_contato($pdo, $nome_tabela, $contato);
+    }
+}
+
+function criar_contato($pdo, $nome_tabela, $contato){
 
     try {
         $colunas = implode(', ', array_keys($contato));
-        $valores = implode(', ', array_map(function($c){return ':'.$c},array_values($contato)));
+        $valores = implode(', ', array_map(function($c){return ':'.$c;},array_keys($contato)));
 
-        $sql = "INSERT INTO tabela ({$colunas}) VALUES ({$valores})";
-        $stmt = $pdo->prepare($sql);    
-        $stmt->execute();
-
-        echo "Novo registro criado com sucesso";
+        $sql = "INSERT INTO {$nome_tabela} ({$colunas}) VALUES ({$valores})";
+        $stmt = $pdo->prepare($sql);
+        
+        $stmt->execute($contato);
     } catch (PDOException $e) {
         echo "Erro: " . $e->getMessage();
     }
 }
 
-function ler_contatos() {
-    global $pdo;
+function ler_contatos($pdo, $nome_tabela) {
     $sql = "SELECT * FROM {$nome_tabela};";
     try {
         $stmt = $pdo->prepare($sql);
