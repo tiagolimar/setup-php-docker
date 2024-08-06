@@ -2,7 +2,7 @@
 
 include '../_conexao/index.php';
 
-function cadastrar($pdo,$nome_tabela) {
+function cadastrar($pdo,$nome_t     abela) {
     $novo_contato = [
         'nome' => $_POST['nome'],
         'email' => $_POST['email'],

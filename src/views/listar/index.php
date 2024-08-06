@@ -13,11 +13,11 @@ $contato_padrao = [
     'telefone' => '-',
 ];
 
-if(count($contatos) == 0) {
-    $contatos = [$contato_padrao];
-} else {
-    $contatos = [$contatos];
-}
+// if(count($contatos) == 0) {
+//     $contatos = [$contato_padrao];
+// } else {
+//     $contatos = [$contatos];
+// }
 
 echo renderTable($contatos);
 ?>

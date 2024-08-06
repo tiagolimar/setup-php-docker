@@ -13,8 +13,7 @@ function renderTrow($obj) {
     foreach ($obj as $value) {
         $htmlTds .= renderTd($value);
     }
-
-    // Uncomment if you want to add extra elements
+    
     $extraElement = '
     <td>
         <div class="d-flex gap-4 justify-content-center">

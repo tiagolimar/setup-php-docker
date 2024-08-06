@@ -15,7 +15,7 @@ function criar_tabela($pdo, $nome_tabela){
     $colunas = [
         'id INT AUTO_INCREMENT PRIMARY KEY',
         'nome VARCHAR(100) NOT NULL',
-        'email VARCHAR(100) NOT NULL',
+        'email VARCHAR(100) NOT NULL UNIQUE',
         'telefone VARCHAR(20)'
     ];
     
@@ -43,7 +43,6 @@ function criar_contato($pdo, $nome_tabela, $contato){
 
         $sql = "INSERT INTO {$nome_tabela} ({$colunas}) VALUES ({$valores})";
         $stmt = $pdo->prepare($sql);
-        
         $stmt->execute($contato);
     } catch (PDOException $e) {
         echo "Erro: " . $e->getMessage();
@@ -55,7 +54,7 @@ function ler_contatos($pdo, $nome_tabela) {
     try {
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
-        $contatos = $stmt->fetch(PDO::FETCH_ASSOC);
+        $contatos = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if ($contatos) {
             return $contatos;
         } else {
