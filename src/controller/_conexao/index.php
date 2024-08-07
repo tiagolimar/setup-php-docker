@@ -16,6 +16,7 @@ function criar_tabela($pdo, $nome_tabela){
         'id INT AUTO_INCREMENT PRIMARY KEY',
         'nome VARCHAR(100) NOT NULL',
         'email VARCHAR(100) NOT NULL UNIQUE',
+        'data_cadastro VARCHAR(20) NOT NULL',
         'telefone VARCHAR(20)'
     ];
     
@@ -30,13 +31,15 @@ function criar_tabela($pdo, $nome_tabela){
 }
 
 function criar_contatos_padrao($pdo, $nome_tabela, $contatos_padrao){
-    foreach ($contatos_padrao as $contato) {
-        criar_contato($pdo, $nome_tabela, $contato);
+    $contatos = ler_contatos($pdo, $nome_tabela);
+    if (count($contatos) == 0) {
+        foreach ($contatos_padrao as $contato) {
+            criar_contato($pdo, $nome_tabela, $contato);
+        }
     }
 }
 
 function criar_contato($pdo, $nome_tabela, $contato){
-
     try {
         $colunas = implode(', ', array_keys($contato));
         $valores = implode(', ', array_map(function($c){return ':'.$c;},array_keys($contato)));
@@ -58,7 +61,7 @@ function ler_contatos($pdo, $nome_tabela) {
         if ($contatos) {
             return $contatos;
         } else {
-            echo "Sem contatos aqui.";
+            return [];
         }
     } catch (PDOException $e) {
         echo "Erro ao buscar usuário: " . $e->getMessage();

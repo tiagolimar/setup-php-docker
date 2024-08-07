@@ -22,6 +22,7 @@ function direcionarRota($routes, $controller) {
                 include $controller[$key];
             }
             $naoEncontrado = FALSE;
+            break;
         }
     }
     
