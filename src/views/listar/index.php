@@ -6,6 +6,6 @@ include __DIR__.'/../../controller/_conexao/index.php';
 
 $contatos = ler_contatos($pdo, $nome_tabela);
 
-echo renderTable($contatos);
+echo renderTable($contatos,'contato');
 ?>
 

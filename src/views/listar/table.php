@@ -8,19 +8,19 @@ function renderTd($obj) {
     return '<td>' . htmlspecialchars($obj) . '</td>';
 }
 
-function renderTrow($obj) {
+function renderTrow($obj, $type) {
     $htmlTds = '';
     foreach ($obj as $value) {
         $htmlTds .= renderTd($value);
     }
     
-    $extraElement = '
+    $extraElement = "
     <td>
-        <div class="d-flex gap-4 justify-content-center">
-            <button id="{}" class="btn btn-dark">Editar</button>
-            <button id="{}" class="btn btn-danger">Remover</button>
+        <div class='d-flex gap-4 justify-content-center'>
+            <a href='/editar-{$type}?id={}' class='btn btn-dark'>Editar</a>
+            <a href='/remover-{$type}?id={}' class='btn btn-danger'>Remover</a>
         </div>
-    </td>';
+    </td>";
     $htmlTds .= str_replace('{}',$obj['id'],$extraElement);
 
     return '<tr>' . $htmlTds . '</tr>';
@@ -33,15 +33,18 @@ function renderThead($array) {
     return '<thead><tr>' . $htmlTh . '</tr></thead>';
 }
 
-function renderTbody($array) {
-    $arrayTrows = array_map('renderTrow', $array);
+function renderTbody($array, $type) {
+    $arrayTrows = array_map(function($obj) use ($type) {
+        return renderTrow($obj, $type);
+    }, $array);
+    
     $htmlTrows = implode("", $arrayTrows);
     return '<tbody>' . $htmlTrows . '</tbody>';
 }
 
-function renderTable($array) {
+function renderTable($array,$type) {
     $thead = renderThead($array);
-    $tbody = renderTbody($array);
+    $tbody = renderTbody($array,$type);
     return "<table class='container table table-striped text-center border border-black table-hover'>" . $thead . $tbody . "</table>";
 }
 ?>

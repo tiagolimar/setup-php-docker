@@ -1,4 +1,4 @@
-<form method="post" class="container w-75 border bg-white p-4 rounded rounded-4 mt-4 d-flex flex-column shadow">
+<form method="post" class="container w-75 border bg-white p-4 rounded rounded-4 mt-4 mb-5 d-flex flex-column shadow">
     <h1 class="text-center fs-2" >Novo Contato 📞</h1>
     <div class="form-group mb-4">
         <label for="nome" class="form-label">Nome:</label>
@@ -9,8 +9,8 @@
         <input type="email" id="email" name="email" autocomplete="on" class="form-control" minlength="3" required>
     </div>
     <div class="form-group mb-4">
-        <label for="data" class="form-label">Data de Cadastro:</label>
-        <input type="date" id="data" name="data" autocomplete="on" class="form-control" minlength="3" required>
+        <label for="data_cadastro" class="form-label">Data de Cadastro:</label>
+        <input type="date" id="data_cadastro" name="data_cadastro" autocomplete="on" class="form-control" minlength="3" required>
     </div>
     <div class="form-group mb-4">
         <label for="telefone" class="form-label">Telefone:</label>
