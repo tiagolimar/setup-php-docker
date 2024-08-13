@@ -16,9 +16,9 @@ function renderTrow($obj, $type) {
     
     $extraElement = "
     <td>
-        <div class='d-flex gap-4 justify-content-center'>
-            <a href='/editar-{$type}?id={}' class='btn btn-dark'>Editar</a>
-            <a href='/remover-{$type}?id={}' class='btn btn-danger'>Remover</a>
+        <div class='d-flex gap-1 justify-content-center'>
+            <a href='/editar-{$type}?id={}' class='btn btn-outline-primary'>✏️</a>
+            <a href='/remover-{$type}?id={}' class='btn btn-outline-dark'>❌</a>
         </div>
     </td>";
     $htmlTds .= str_replace('{}',$obj['id'],$extraElement);
@@ -30,7 +30,7 @@ function renderThead($array) {
     $keys = array_keys(reset($array));
     $arrayTh = array_map('renderTh', array_merge($keys,['controles']));
     $htmlTh = implode("", $arrayTh);
-    return '<thead><tr>' . $htmlTh . '</tr></thead>';
+    return '<thead class="table-dark" ><tr>' . $htmlTh . '</tr></thead>';
 }
 
 function renderTbody($array, $type) {

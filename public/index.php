@@ -9,7 +9,8 @@ $routes = [
     '/listarLocais' => '../src/views/local/listar.php',
     '/remover-contato' => '../src/views/remover/index.php',
     '/remover-local' => '../src/views/remover/local.php',
-    '/editar-contato' => '../src/views/editar/index.php'
+    '/editar-contato' => '../src/views/editar/index.php',
+    '/editar-local' => '../src/views/editar/local.php'
 ];
 
 $controller = [

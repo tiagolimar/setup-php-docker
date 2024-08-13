@@ -9,10 +9,6 @@
         <input type="email" id="email" name="email" autocomplete="on" class="form-control" minlength="3" required>
     </div>
     <div class="form-group mb-4">
-        <label for="data_cadastro" class="form-label">Data de Cadastro:</label>
-        <input type="date" id="data_cadastro" name="data_cadastro" autocomplete="on" class="form-control" minlength="3" required>
-    </div>
-    <div class="form-group mb-4">
         <label for="telefone" class="form-label">Telefone:</label>
         <input type="phone" id="telefone" name="telefone" class="form-control" minlength="8" required>
     </div>

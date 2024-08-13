@@ -7,9 +7,8 @@
     <?php include 'style.php' ?>
     <title>App</title>
 </head>
-<body class="container" style="background-color: #EFEFEF">
-    <h1 class="mt-3 text-center">📞Contatos📞</h1>
-    <nav class="navbar navbar-expand bg-dark-subtle border-top border-bottom border-black pt-2 pb-2 mt-2 mb-2">
+<body style="background-color: #EFEFEF">
+    <nav class="navbar navbar-expand bg-dark-subtle border-top border-bottom border-black pt-2">
         <div class="container-fluid w-100">
             <ul class="navbar-nav flex-row justify-content-center w-100">
                 <li class="nav-item text-center"><a class="nav-link fs-4" href="/">Home</a></li>
@@ -37,3 +36,4 @@
         </div>
     </nav>
     <?php include 'script.php' ?>
+    <div class="content-wrapper flex-grow-1 mt-2">

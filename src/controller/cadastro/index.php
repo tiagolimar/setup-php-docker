@@ -5,9 +5,10 @@ function cadastrar($pdo, $nome_tabela) {
     $novo_contato = [
         'nome' => $_POST['nome'],
         'email' => $_POST['email'],
-        'data_cadastro' => $_POST['data_cadastro'],
         'telefone' => $_POST['telefone'],
     ];
+
+    $novo_contato['data_cadastro'] = date('Y-m-d');
     
     criar_contato($pdo, $nome_tabela, $novo_contato);
 }
